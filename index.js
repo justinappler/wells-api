@@ -7,6 +7,10 @@ var wells = require('./wells');
 var app = express();
 var port = process.env.PORT || 8082;
 
+app.get('/', function (req, res) {
+  res.redirect(301, '/rates.json');
+});
+
 app.get('/rates.json', function (req, res) {
   wells.getRates(function (err, rates) {
     if (err) {
