@@ -14,7 +14,7 @@ app.get('/rates.json', function (req, res) {
     } else {
       res.json(rates);
     }
-  })
+  }, req.query.refresh);
 });
 
 app.get('/rates.xml', function (req, res) {
@@ -33,7 +33,7 @@ app.get('/rates.xml', function (req, res) {
 
       res.send(xml([{ rates: rateObjs }], { declaration: true }));
     }
-  })
+  }, req.query.refresh);
 });
 
 http
